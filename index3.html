@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script>
+    /*Задание3
+    Создайте приложение, которое от пользователя должно принимать строки
+    в формате "10+20" или "50-6" при получении такой строки приложение 
+    должно отобразить результат арифметического действия. index3.html*/
+    </script>
+    <script>
+        window.onload = function(){
+                document.getElementById("input").onblur = function () {
+
+                var str = document.getElementById("input").value;
+
+                var operation = str.match(/[+*/-]/g)[0];
+
+                var numberArray = str.split(/\W+/g);
+                
+                document.getElementById("output").innerHTML = writeIn(numberArray,operation);
+
+        }
+        function writeIn(arr,oper){
+
+            var a = parseInt(arr[0]);// первое число
+            var b = parseInt(arr[1]);// второе число
+
+            if(oper == "+"){
+                
+                a+b;//Поему undefind
+            }
+            if(oper == "-"){
+
+                a-b;
+            }
+            if(oper == "*"){
+
+                a*b;
+            }
+            if(oper == "/"){
+
+                if(a==0 || b==0){
+
+                    "на ноль делить нельзя"
+
+                }
+                a/b;
+            }
+        }
+        }
+  </script>
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" id="input">
+    <p id="output"></p>
+</body>
+</html>

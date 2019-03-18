@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script>
+    /*Задание4
+        Создайте страницу с тремя ссылками "js урок1" - "js урок3".при
+        нажатии по каждой из ссылок должно отображаться окно с описанием
+        соответсвующих уроков этого курса, Если окно с описанием в данный
+        момент отображается, текст ссылки должен быть "Js Урок №(открыт)
+        При повторном нажатии на ссылку окно должно исчезать и текст 
+        ссылки должен меняться на исходный*/
+    </script>
+    <script>
+        window.onload = function(){
+            var a1 = document.getElementById("openWin1");
+            var a2 = document.getElementById("openWin2");
+            var a3 = document.getElementById("openWin3");
+            a1.onclick = function(){
+                if(this.innerHTML == "js 1"){
+                    this.innerHTML = "js 1 open";
+                    w = window.open("somewindow.html","Js 1","width=400,height=400,status=yes,resizable=no");
+                    } 
+                else {
+                    this.innerHTML = "js 1";
+                    w.close();
+                    }
+                return false;
+            }
+            a2.onclick = function(){
+                if(this.innerHTML == "js 2"){
+                    this.innerHTML = "js 2 open";
+                    w = window.open("somewindow.html","Js 2","width=400,height=400,status=yes,resizable=no");
+                    } 
+                else {
+                    this.innerHTML = "js 2";
+                    w.close();
+                    }
+                return false;
+            }
+            a3.onclick = function(){
+                if(this.innerHTML == "js 3"){
+                    this.innerHTML = "js 3 open";
+                    w = window.open("somewindow.html","Js 3","width=400,height=400,status=yes,resizable=no");
+                    } 
+                else {
+                    this.innerHTML = "js 3";
+                    w.close();
+                    }
+                return false;
+            }
+        }
+    </script>
+</head>
+<body>
+    <a href="#" id="openWin1">js 1</a>
+    <a href="#" id="openWin2">js 2</a>
+    <a href="#" id="openWin3">js 3</a>
+</body>
+</html>

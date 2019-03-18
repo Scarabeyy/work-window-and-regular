@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script>/* 
+    Задание2 
+        Разработайте страницу, которая будет вываодить сумму двух Get 
+        папамеипрм а и b. Например, если на страницу заходят по 
+        адресу, page.html?a=100&b=200 то в теле страницы должно 
+        отображаться сообщение "сумма 300" index2.html*/
+    </script>
+    <script>
+        //?a=100&b=200 Для проверки
+        function getQueryString() {
+            var args = {};
+            var query = location.search.substring(1);
+            var pairs = query.split("&"); // a=100 b=200
+
+            for(var i = 0; i < pairs.length; i++){
+                var pos = pairs[i].indexOf('=');
+                if(pos == -1){
+                    continue;
+                }
+                var argname = pairs[i].substring(0, pos); //a,b?
+                var value = pairs[i].substring(pos + 1); //100,200?
+
+                args[argname]=value;
+            }
+            return args;
+        }
+        function read(){
+            var args = getQueryString();
+            var e = document.createElement("p");
+            var first = parseFloat(args.a);
+            var second = parseFloat(args.b);
+
+            e.innerHTML = first + second;
+
+            document.body.appendChild(e);
+        }
+    </script>
+</head>
+<body>
+    <button onclick="read()">Read</button>
+</body>
+</html>

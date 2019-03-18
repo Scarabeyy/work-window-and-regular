@@ -9,15 +9,18 @@
     Разработайте программу секундомер. Секундомер должен иметь три
     кнопки "Старт"."Стоп"."Сбросить".Секундомер должен выводить время
     в формате 00:00:00. index1.html
+
     Задание2 
     Разработайте страницу, которая будет вываодить сумму двух Get 
     папамеипрм а и b. Например, если на страницу заходят по 
     адресу, page.html?a=100&b=200 то в теле страницы должно 
     отображаться сообщение "сумма 300" index2.html
+
     Задание3
     Создайте приложение, которое от пользователя должно принимать строки
     в формате "10+20" или "50-6" при получении такой строки приложение 
     должно отобразить результат арифметического действия. index3.html
+    
     Задание4
     Создайте страницу с тремя ссылками "js урок1" - "js урок3".при
     нажатии по каждой из ссылок должно отображаться окно с описанием
@@ -25,14 +28,66 @@
     момент отображается, текст ссылки должен быть "Js Урок №(открыт)
     При повторном нажатии на ссылку окно должно исчезать и текст 
     ссылки должен меняться на исходный
+    
     Здание5
     Создайте бегущую строку. Пользователь вводит текст в поле ввода 
     и нажимает на кнопк. После чего в элементе страниц отображается
     бегущая строка с введенным текстом*/
     </script>
+    <script>
+        window.onload = function(){
+
+            var counterMs = 0;
+            var counterS = 0;
+            var counterM = 0;
+            var getID = function(id){
+                return document.getElementById(id);
+            }
+
+            var intervalHandler;
+
+            function startTimer (){
+
+                counterMs++;
+                getID("msecond").innerHTML = counterMs;
+                 if (counterMs > 10 ){
+
+                     counterMs = 0;
+                     counterS++ ;
+                     getID("second").innerHTML = counterS;
+
+                     if (counterS > 10 ){
+
+                         counterM++ ;
+                         getID("minute").innerHTML = counterM;
+
+                     }
+                 }
+            }
+
+            getID("start-btn").onclick = function(){
+                intervalHandler = setInterval(startTimer, 1);
+            }
+            getID("stop-btn").onclick = function(){
+
+                clearInterval(intervalHandler);
+
+            }
+            getID("reset-btn").onclick = function(){
+                //причину не срабатывания я не понимаю
+                getID("msecond").innerHTML = "--";
+                getId("second").innerHTML = "--";
+                getID("minute").innerHTML = "--";
+
+            }
+        }
+    </script>
     <title>Document</title>
 </head>
 <body>
-    
+    <span id="minute">--</span>:<span id="second">--</span>:<span id="msecond">--</span>
+    <button id="start-btn">Start</button>
+    <button id="stop-btn">Stop</button>
+    <button id="reset-btn">Reset</button>
 </body>
 </html>
