@@ -12,25 +12,47 @@
     </script>
     <script>
         //Не до конца понял вопрос в задании
-            window.onload = function(){
+        window.onload = function(){
             var input = document.getElementById("input");
-            var inputBtn = document.getElementById("input-btn");
             var output = document.getElementById("output");
-            var speed = 80;
-            
-            inputBtn.addEventListener('click', function() {
-                var textArr = input.value.split('');
-                var i = 0;
-                output.innerHTML = '';
-                var interval = setInterval(function() {
-                    output.innerHTML += textArr[i];
-                    if (i >= textArr.length - 1) {
-                        clearInterval(interval);
-                    }
-                    else i++;
-                }, speed);
-            });
+
+            input.onchange = function(){
+                var arr = input.value.split('');
+                var intervalHandler = setInterval(function(){
+                    for(var i = 0; i < arr.length; i++){
+                        output.innerHTML += arr[i];
+                        if(i >= arr.length -1 ){
+                            clearInterval(intervalHandler);
+                        }
+                    }                    
+                }, 80);
+
+            }     
         }
+       
+       
+       
+       
+       
+        //     window.onload = function(){
+        //     var input = document.getElementById("input");
+        //     var inputBtn = document.getElementById("input-btn");
+        //     var output = document.getElementById("output");
+        //     var speed = 80;
+            
+        //     inputBtn.addEventListener('click', function() {
+        //         var textArr = input.value.split('');
+        //         var i = 0;
+        //         output.innerHTML = '';
+        //         var interval = setInterval(function() {
+        //             output.innerHTML += textArr[i];
+        //             if (i >= textArr.length - 1) {
+        //                 clearInterval(interval);
+        //             }
+        //             else i++;
+        //         }, speed);
+        //     });
+        // }
     </script>
     <title>Document</title>
 </head>
