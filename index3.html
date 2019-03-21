@@ -27,30 +27,20 @@
 
             var a = parseInt(arr[0]);// первое число
             var b = parseInt(arr[1]);// второе число
-
-            if(oper == "+"){
+            
+            if(a == 0 || b == 0 && oper == "/"){
                 
-                a+b;//Поему undefind
+                return "на ноль делить нельзя";
             }
-            if(oper == "-"){
 
-                a-b;
-            }
-            if(oper == "*"){
-
-                a*b;
-            }
-            if(oper == "/"){
-
-                if(a==0 || b==0){
-
-                    "на ноль делить нельзя"
-
-                }
-                a/b;
+            switch(oper){
+                case "+": return a+b; break;
+                case "-": return a-b; break;
+                case "/": return a/b; break;
+                case "*": return a*b; break;
             }
         }
-        }
+    }
   </script>
     <title>Document</title>
 </head>

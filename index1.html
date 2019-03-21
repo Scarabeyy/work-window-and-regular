@@ -50,13 +50,13 @@
 
                 counterMs++;
                 getID("msecond").innerHTML = counterMs;
-                 if (counterMs > 10 ){
+                 if (counterMs > 90 ){
 
                      counterMs = 0;
                      counterS++ ;
                      getID("second").innerHTML = counterS;
 
-                     if (counterS > 10 ){
+                     if (counterS > 59 ){
 
                          counterM++ ;
                          getID("minute").innerHTML = counterM;
@@ -66,7 +66,7 @@
             }
 
             getID("start-btn").onclick = function(){
-                intervalHandler = setInterval(startTimer, 1);
+                intervalHandler = setInterval(startTimer, 0,1);
             }
             getID("stop-btn").onclick = function(){
 
@@ -76,8 +76,9 @@
             getID("reset-btn").onclick = function(){
                 //причину не срабатывания я не понимаю
                 getID("msecond").innerHTML = "--";
-                getId("second").innerHTML = "--";
+                getID("second").innerHTML = "--";
                 getID("minute").innerHTML = "--";
+                clearInterval(intervalHandler);
 
             }
         }
@@ -86,6 +87,7 @@
 </head>
 <body>
     <span id="minute">--</span>:<span id="second">--</span>:<span id="msecond">--</span>
+    </br>
     <button id="start-btn">Start</button>
     <button id="stop-btn">Stop</button>
     <button id="reset-btn">Reset</button>
